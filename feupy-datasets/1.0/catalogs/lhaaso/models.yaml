@@ -1,0 +1,67 @@
+components:
+-   name: LHAASO J1825-1326
+    type: SkyModel
+    datasets_names:
+    - LHAASO J1825-1326
+    spectral:
+        type: LogParabolaSpectralModel
+        parameters:
+        -   name: amplitude
+            value: 3.1649871186449686e-14
+            unit: TeV-1 s-1 cm-2
+            error: 2.5765132005591304e-15
+        -   name: reference
+            value: 10.0
+            unit: TeV
+        -   name: alpha
+            value: 0.9199999999999999
+            frozen: true
+        -   name: beta
+            value: 1.19
+            frozen: true
+-   name: LHAASO J1908+0621
+    type: SkyModel
+    datasets_names:
+    - LHAASO J1908+0621
+    spectral:
+        type: LogParabolaSpectralModel
+        parameters:
+        -   name: amplitude
+            value: 3.352368750125478e-14
+            unit: TeV-1 s-1 cm-2
+            error: 1.292714967551265e-15
+        -   name: reference
+            value: 10.0
+            unit: TeV
+        -   name: alpha
+            value: 2.27
+            frozen: true
+        -   name: beta
+            value: 0.45999999999999996
+            frozen: true
+-   name: LHAASO J2226+6057
+    type: SkyModel
+    datasets_names:
+    - LHAASO J2226+6057
+    spectral:
+        type: LogParabolaSpectralModel
+        parameters:
+        -   name: amplitude
+            value: 1.4487514535020952e-14
+            unit: TeV-1 s-1 cm-2
+            error: 9.378036819837579e-16
+        -   name: reference
+            value: 10.0
+            unit: TeV
+        -   name: alpha
+            value: 1.56
+            frozen: true
+        -   name: beta
+            value: 0.8799999999999999
+            frozen: true
+covariance: models_covariance.dat
+metadata:
+    creator: Gammapy 2.0.1
+    date: '2026-05-10T15:44:21.016591'
+    origin: null
+checksum: dda343dcdf0bb37f057502a4348cc9c4

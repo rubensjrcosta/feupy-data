@@ -1,0 +1,15 @@
+datasets:
+-   name: LHAASO J1825-1326
+    type: FluxPointsDataset
+    filename: LHAASO_J1825-1326.fits
+-   name: LHAASO J1908+0621
+    type: FluxPointsDataset
+    filename: LHAASO_J1908+0621.fits
+-   name: LHAASO J2226+6057
+    type: FluxPointsDataset
+    filename: LHAASO_J2226+6057.fits
+metadata:
+    creator: Gammapy 2.0.1
+    date: '2026-05-10T15:44:20.977105'
+    origin: null
+checksum: 562638de33cbf59d52fbe6a9121cd718
