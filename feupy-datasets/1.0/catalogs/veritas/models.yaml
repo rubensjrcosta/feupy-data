@@ -1,7 +1,8 @@
 components:
 -   name: VER J2031+415
     type: SkyModel
-    datasets_names: VER J2031+415
+    datasets_names:
+    - VER J2031+415
     spectral:
         type: PowerLawSpectralModel
         parameters:
@@ -17,7 +18,8 @@ components:
             unit: GeV
 -   name: VER J2019+407
     type: SkyModel
-    datasets_names: VER J2019+407
+    datasets_names:
+    - VER J2019+407
     spectral:
         type: PowerLawSpectralModel
         parameters:
@@ -33,7 +35,8 @@ components:
             unit: GeV
 -   name: VER J2019+368
     type: SkyModel
-    datasets_names: VER J2019+368
+    datasets_names:
+    - VER J2019+368
     spectral:
         type: PowerLawSpectralModel
         parameters:
@@ -49,7 +52,8 @@ components:
             unit: GeV
 -   name: VER J2018+367*
     type: SkyModel
-    datasets_names: VER J2018+367*
+    datasets_names:
+    - VER J2018+367*
     spectral:
         type: PowerLawSpectralModel
         parameters:
@@ -65,7 +69,8 @@ components:
             unit: GeV
 -   name: VER J2020+368*
     type: SkyModel
-    datasets_names: VER J2020+368*
+    datasets_names:
+    - VER J2020+368*
     spectral:
         type: PowerLawSpectralModel
         parameters:
@@ -81,7 +86,8 @@ components:
             unit: GeV
 -   name: VER J2016+371
     type: SkyModel
-    datasets_names: VER J2016+371
+    datasets_names:
+    - VER J2016+371
     spectral:
         type: PowerLawSpectralModel
         parameters:
@@ -96,3 +102,8 @@ components:
             value: 2510.0
             unit: GeV
 covariance: models_covariance.dat
+metadata:
+    creator: Gammapy 2.0.1
+    date: '2026-09-12T04:41:59.804788'
+    origin: null
+checksum: e9e3e4040a4cc9fd3c55f3704822f385

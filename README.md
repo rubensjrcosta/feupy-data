@@ -1,72 +1,92 @@
 # FeuPy Data
 
-[![FeuPy](https://img.shields.io/badge/used%20by-FeuPy-blue.svg)](https://github.com/rubensjrcosta/feupy)
+FeuPy Data is the auxiliary data repository for
+[FeuPy](https://github.com/rubensjrcosta/feupy), providing versioned
+datasets used by the package for gamma-ray source catalogs, instrument
+response functions, and data products from dedicated scientific
+publications.
 
-**FeuPy Data** contains auxiliary datasets used by [FeuPy](https://github.com/rubensjrcosta/feupy), an open-source Python package for very-high-energy gamma-ray analysis, modeling, and simulations.
-
-The repository provides external data required by selected FeuPy workflows, including catalog information, instrument response functions, sensitivity products, and other supporting datasets.
+The data repository is maintained separately from the FeuPy source code
+so that software and dataset versions can evolve independently while
+preserving the reproducibility of scientific analyses.
 
 ## Repository structure
 
-The datasets are organized by version:
+The repository is organized into versioned dataset releases:
 
 ```text
 feupy-data/
+├── CITATION.cff
+├── LICENSE
+├── README.md
 └── feupy-datasets/
     └── 1.0/
+        ├── catalogs/
+        ├── dedicated_publications/
+        └── irfs/
 ```
 
-Each dataset release is stored in a dedicated version directory to ensure reproducibility and compatibility with specific FeuPy releases.
+The main directories contain:
 
-## Dataset versions
+- `catalogs/`: gamma-ray and multiwavelength source catalogs and
+  associated data products;
+- `dedicated_publications/`: data products associated with specific
+  scientific publications;
+- `irfs/`: instrument response functions and related files used by
+  FeuPy.
+
+Individual directories may also contain scripts, metadata, README files,
+figures, and original or derived data products required to document the
+provenance and construction of the datasets.
+
+## Dataset version
 
 The current dataset release is:
 
 ```text
-feupy-datasets/1.0/
+FeuPy Data 1.0
 ```
 
-Compatibility with FeuPy releases is summarized below:
+FeuPy Data `1.0` is the dataset release associated with the initial
+FeuPy `v0.1.0` release.
 
-| FeuPy version | FeuPy Data version |
-| ------------- | ------------------ |
-| `v0.1.0`      | `1.0`              |
+The recommended combination is therefore:
+
+```text
+FeuPy:       v0.1.0
+FeuPy Data:  1.0
+```
 
 ## Installation
 
-Clone the repository:
+Clone the FeuPy Data repository:
 
 ```bash
 git clone https://github.com/rubensjrcosta/feupy-data.git
 ```
 
-The data do not require installation as a Python package.
+The datasets for version `1.0` are located in:
 
-Instead, FeuPy accesses the datasets through the `FEUPY_DATA` environment variable.
+```text
+feupy-data/feupy-datasets/1.0
+```
 
-## Configure `FEUPY_DATA`
+FeuPy Data is not installed as a Python package. FeuPy accesses the
+datasets through the `FEUPY_DATA` environment variable.
 
-Set the environment variable to the dataset version required by your FeuPy installation:
+## Configuring `FEUPY_DATA`
+
+Set `FEUPY_DATA` to the directory corresponding to the dataset version
+that you want to use.
+
+For example:
 
 ```bash
 export FEUPY_DATA=/path/to/feupy-data/feupy-datasets/1.0
 ```
 
-For example:
-
-```bash
-export FEUPY_DATA=$HOME/feupy-data/feupy-datasets/1.0
-```
-
-Verify the configuration with:
-
-```bash
-echo $FEUPY_DATA
-```
-
-## Conda environment configuration
-
-When using a Conda environment, the data path can be stored directly in the environment:
+If you are using a Conda environment, the variable can be stored in the
+environment:
 
 ```bash
 conda env config vars set \
@@ -88,7 +108,8 @@ echo $FEUPY_DATA
 
 ## Usage with FeuPy
 
-FeuPy automatically uses the `FEUPY_DATA` environment variable when access to external datasets is required.
+FeuPy automatically uses the `FEUPY_DATA` environment variable when
+access to external datasets is required.
 
 For FeuPy `v0.1.0`, the expected configuration is:
 
@@ -102,9 +123,14 @@ https://github.com/rubensjrcosta/feupy
 
 ## Reproducibility
 
-Dataset versions are kept separate so that scientific analyses can be reproduced using the same data products.
+FeuPy Data releases are versioned independently from the FeuPy software.
 
-Users are encouraged to report both the FeuPy software version and the FeuPy Data version used in their analyses.
+This separation allows a scientific analysis to be reproduced using the
+same software and data products even after either repository has
+subsequently changed.
+
+Users are encouraged to report both versions when presenting or
+publishing results obtained with FeuPy.
 
 For example:
 
@@ -113,56 +139,130 @@ FeuPy v0.1.0
 FeuPy Data 1.0
 ```
 
+When possible, analyses should also record the specific versions of
+external catalogs, instrument response functions, and publication data
+products used.
+
 ## Data provenance
 
-The repository may contain data derived from or associated with external observatories, catalogs, scientific collaborations, publications, or software projects.
+FeuPy Data contains data products derived from or associated with
+external observatories, source catalogs, scientific collaborations,
+publications, and software projects.
 
-Where applicable, the corresponding original references should be cited when these datasets are used in scientific work.
+The repository preserves, where applicable, supporting information such
+as:
 
-Users should consult the documentation, metadata, and original sources associated with individual datasets for information about provenance and scientific interpretation.
+- bibliographic references;
+- source and publication metadata;
+- original or processed data products;
+- scripts used to construct FeuPy-compatible datasets;
+- information about dataset availability and review status;
+- figures and documentation associated with the original data products.
+
+These materials are retained to improve traceability and
+reproducibility.
+
+The inclusion of a dataset in FeuPy Data does not replace the original
+scientific publication or data release. Users should consult and cite
+the corresponding original sources when using these data products in
+scientific work.
 
 ## Citation
 
-If you use FeuPy Data in scientific work, please cite FeuPy and the original references associated with the datasets used in your analysis.
+If you use FeuPy Data in scientific work, please cite both **FeuPy Data**
+and the original references associated with the datasets used in your
+analysis.
 
-Citation information for FeuPy is provided in the main repository:
+Citation metadata for this repository are provided in:
+
+```text
+CITATION.cff
+```
+
+The archived release and DOI will be provided through Zenodo.
+
+FeuPy software is available at:
 
 https://github.com/rubensjrcosta/feupy
 
-A dedicated citation record for FeuPy Data may also be provided through Zenodo.
+When reporting an analysis, we recommend specifying both the software
+and dataset versions, for example:
+
+```text
+FeuPy v0.1.0
+FeuPy Data 1.0
+```
+
+In addition, the appropriate publications, observatories, catalogs, and
+collaborations associated with the individual datasets should be cited
+according to their respective citation requirements.
 
 ## Versioning
 
 FeuPy Data uses independent dataset versioning.
 
-The software and dataset versions therefore do not need to match numerically.
+Software and dataset versions therefore do not need to match
+numerically.
 
-For example:
+For the initial release:
 
 ```text
-FeuPy software:     v0.1.0
-FeuPy Data:         1.0
+FeuPy software:  v0.1.0
+FeuPy Data:      1.0
 ```
 
-A new dataset version should be created whenever changes to the data may affect scientific results or compatibility with FeuPy analyses.
+A new FeuPy Data version should be created whenever changes to the
+datasets may affect scientific results, reproducibility, or
+compatibility with FeuPy analyses.
+
+Minor maintenance changes that do not modify the scientific content of
+a released dataset should be documented appropriately without altering
+previous archived releases.
+
+Released versions should remain immutable so that analyses referring to
+a specific FeuPy Data release can be reproduced.
 
 ## License and data rights
 
-The contents of this repository may originate from multiple external data providers.
+The FeuPy Data repository structure, scripts, and original project
+materials are distributed under the BSD 3-Clause License, unless
+otherwise stated.
 
-Individual datasets may therefore be subject to different licenses, acknowledgments, citation requirements, or redistribution policies.
+The repository also contains or references data products originating
+from external observatories, catalogs, scientific collaborations,
+publications, and software projects. Such third-party data may be
+subject to their own licenses, terms of use, acknowledgment
+requirements, citation requirements, or redistribution policies.
 
-The presence of a dataset in this repository does not override the terms defined by the original data provider.
+The BSD 3-Clause License of this repository does not supersede the
+rights or conditions associated with third-party data products.
 
-Users are responsible for consulting and following the applicable conditions associated with each dataset.
+Users are responsible for consulting the provenance information and
+original references associated with each dataset before redistribution
+or scientific publication.
 
-## Authors
+See the `LICENSE` file for the license applicable to the original FeuPy
+Data repository content.
 
-* **Rubens Costa Jr.**
-* **Rita C. dos Anjos**
+## Contributing
+
+Contributions that improve dataset quality, provenance information,
+reproducibility, or compatibility with FeuPy are welcome.
+
+When adding or modifying a dataset, contributors should preserve the
+original scientific provenance and, whenever possible, provide:
+
+- the original reference or data source;
+- sufficient metadata to identify the dataset;
+- scripts required to reproduce derived products;
+- documentation describing relevant transformations;
+- appropriate citation information.
+
+Changes that modify scientific data products should be clearly
+documented and considered when assigning a new FeuPy Data version.
 
 ## Related project
 
-FeuPy source code:
+FeuPy Data is maintained as the companion data repository for FeuPy:
 
 https://github.com/rubensjrcosta/feupy

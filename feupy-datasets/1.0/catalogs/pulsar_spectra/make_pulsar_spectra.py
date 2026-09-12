@@ -1,62 +1,71 @@
 # Licensed under a 3-clause BSD style license - see LICENSE.rst
-"""
-Script to collect pulsar spectral flux data from a catalogue,
-convert NumPy objects to plain Python types, and save as a YAML file.
-"""
+"""Generate the pulsar_spectra catalog used by FeuPy."""
 
-import yaml
+from pathlib import Path
+
 import numpy as np
+import yaml
 from pulsar_spectra.catalogue import collect_catalogue_fluxes
+
+BASE_DIR = Path(__file__).resolve().parent
+CATALOG_FILE = BASE_DIR / "pulsar_spectra.yaml"
 
 
 def convert_numpy_objects(obj):
-    """
-    Recursively convert NumPy objects to plain Python types.
-    
+    """Recursively convert NumPy objects to YAML-safe Python types.
+
     Parameters
     ----------
     obj : object
-        The object to be converted. Can be a dictionary, list, tuple, NumPy array, or scalar.
-    
+        Object to convert.
+
     Returns
     -------
     object
-        The converted object with all NumPy-specific types replaced by plain Python types.
+        Object containing only plain Python types.
     """
     if isinstance(obj, np.ndarray):
         return obj.tolist()
-    elif isinstance(obj, np.generic):
-        return obj.item()  # Convert NumPy scalar to Python scalar
-    elif isinstance(obj, dict):
-        return {k: convert_numpy_objects(v) for k, v in obj.items()}
-    elif isinstance(obj, list):
-        return [convert_numpy_objects(x) for x in obj]
-    elif isinstance(obj, tuple):
-        return tuple(convert_numpy_objects(x) for x in obj)
+
+    if isinstance(obj, np.generic):
+        return obj.item()
+
+    if isinstance(obj, dict):
+        return {key: convert_numpy_objects(value) for key, value in obj.items()}
+
+    if isinstance(obj, (list, tuple)):
+        return [convert_numpy_objects(value) for value in obj]
+
     return obj
 
 
-def main(output_file="pulsar_spectra.yaml"):
-    """
-    Main function to collect pulsar catalogue data and save it as a YAML file.
-    
+def make_catalog():
+    """Collect and prepare the pulsar spectral catalog."""
+    catalog = collect_catalogue_fluxes()
+    return convert_numpy_objects(catalog)
+
+
+def write_catalog(filename=CATALOG_FILE):
+    """Write the pulsar spectral catalog to YAML.
+
     Parameters
     ----------
-    output_file : str, optional
-        Name of the output YAML file. Default is 'pulsar_spectra.yaml'.
+    filename : str or `~pathlib.Path`, optional
+        Output YAML filename.
     """
-    # Collect the pulsar catalogue data
-    cat_dict = collect_catalogue_fluxes()
-    
-    # Convert NumPy objects to plain Python types for YAML compatibility
-    safe_cat_dict = convert_numpy_objects(cat_dict)
-    
-    # Save the dictionary to a YAML file
-    with open(output_file, "w") as yaml_file:
-        yaml.dump(safe_cat_dict, yaml_file, default_flow_style=False)
-    print(f"Pulsar spectral data saved to {output_file}")
+    filename = Path(filename)
+    catalog = make_catalog()
+
+    with filename.open("w", encoding="utf-8") as yaml_file:
+        yaml.safe_dump(
+            catalog,
+            yaml_file,
+            default_flow_style=False,
+            sort_keys=True,
+        )
+
+    print(f"Pulsar spectral data saved to {filename}")
 
 
 if __name__ == "__main__":
-    main()
-
+    write_catalog()

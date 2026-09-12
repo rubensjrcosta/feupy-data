@@ -1,0 +1,26 @@
+# %ECSV 1.0
+# ---
+# datatype:
+# - {name: e_ref, unit: TeV, datatype: float64, description: Reference energy}
+# - {name: sqrt_ts, datatype: float64, description: Square root of the test statistic}
+# - {name: e2dnde, unit: TeV / (s cm2), datatype: float64, description: Spectral energy distribution value}
+# - {name: e2dnde_errp, unit: TeV / (s cm2), datatype: float64, description: Positive statistical uncertainty on e2dnde}
+# - {name: e2dnde_errn, unit: TeV / (s cm2), datatype: float64, description: Negative statistical uncertainty on e2dnde}
+# - {name: e2dnde_ul, unit: TeV / (s cm2), datatype: float64, description: Upper limit on e2dnde}
+# - {name: is_ul, datatype: bool, description: Upper limit flag}
+# meta: !!omap
+# - {SED_TYPE: e2dnde}
+# - {source_name: eHWC J1907+063}
+# - {reference: 'https://doi.org/10.1103/PhysRevLett.124.021102'}
+# schema: astropy-2.0
+e_ref sqrt_ts e2dnde e2dnde_errp e2dnde_errn e2dnde_ul is_ul
+1.16 11.7 1.59e-11 1.4e-12 1.4e-12 nan False
+1.8 12.4 1.52e-11 1.3e-12 1.3e-12 nan False
+3.13 13.7 1.51e-11 1.1e-12 1.1e-12 nan False
+5.59 16.2 1.21e-11 8e-13 8e-13 nan False
+10.13 16.3 9.36e-12 6.3e-13 6.3e-13 nan False
+19.0 13.6 6.36e-12 5.3e-13 5.3e-13 nan False
+34.79 11.4 4.25e-12 4.6e-13 4.6e-13 nan False
+60.89 7.66 2.78e-12 4.6e-13 4.6e-13 nan False
+105.4 6.54 2.49e-12 5.3e-13 5.3e-13 nan False
+180.8 2.66 1.25e-12 6.1e-13 6.1e-13 nan False

@@ -1,0 +1,19 @@
+# %ECSV 1.0
+# ---
+# datatype:
+# - {name: source_name, datatype: string, description: Source name}
+# - {name: ra, unit: deg, datatype: float64, format: .3f, description: Right Ascension (J2000)}
+# - {name: dec, unit: deg, datatype: float64, format: .3f, description: Declination (J2000)}
+# - {name: spectral_model, datatype: string, description: Spectral model type}
+# meta: !!omap
+# - {catalog_name: VERITAS}
+# - {SED_TYPE: dnde}
+# - {reference: 'https://iopscience.iop.org/article/10.3847/1538-4357/aac4a2'}
+# schema: astropy-2.0
+source_name ra dec spectral_model
+"VER J2031+415" 307.8900972619614 41.57972132797831 pl
+"VER J2019+407" 304.9302191934399 40.76866467050585 pl
+"VER J2019+368" 304.8482602125865 36.77913396143487 pl
+"VER J2018+367*" 304.70570675893015 36.73605747343357 pl
+"VER J2020+368*" 304.42510633470175 35.99482170088916 pl
+"VER J2016+371" 303.9876709995815 37.208734179329625 pl

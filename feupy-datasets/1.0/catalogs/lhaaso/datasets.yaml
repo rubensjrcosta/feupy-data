@@ -10,6 +10,6 @@ datasets:
     filename: LHAASO_J2226+6057.fits
 metadata:
     creator: Gammapy 2.0.1
-    date: '2026-05-10T15:44:20.977105'
+    date: '2026-09-12T04:04:57.167259'
     origin: null
-checksum: 562638de33cbf59d52fbe6a9121cd718
+checksum: 675d826d44c9fdf9d1372b4038784c32

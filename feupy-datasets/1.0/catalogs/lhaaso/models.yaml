@@ -62,6 +62,6 @@ components:
 covariance: models_covariance.dat
 metadata:
     creator: Gammapy 2.0.1
-    date: '2026-05-10T15:44:21.016591'
+    date: '2026-09-12T04:04:57.206994'
     origin: null
-checksum: dda343dcdf0bb37f057502a4348cc9c4
+checksum: 19d3eb1f952080ccac1d9dc260327190
