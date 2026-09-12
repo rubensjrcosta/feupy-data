@@ -1,28 +1,46 @@
-BSD 3-Clause License
+FeuPy Data — Data Use and Licensing Notice
 
-Copyright (c) 2026, Rubens Costa Jr.
+Copyright (c) 2026 Rubens Costa Jr. and Rita C. dos Anjos
 
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
+This repository contains auxiliary datasets and data products used by the
+FeuPy software package.
 
-1. Redistributions of source code must retain the above copyright notice, this
-   list of conditions and the following disclaimer.
+The contents of this repository may include data obtained from, derived from,
+or associated with third-party observatories, scientific collaborations,
+catalogs, publications, and software projects.
 
-2. Redistributions in binary form must reproduce the above copyright notice,
-   this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution.
+Unless explicitly stated otherwise for a specific file or dataset, inclusion
+of data in this repository does not transfer ownership, copyright, or other
+rights from the original data provider to the FeuPy Data authors.
 
-3. Neither the name of the copyright holder nor the names of its
-   contributors may be used to endorse or promote products derived from
-   this software without specific prior written permission.
+Third-party data remain subject to the licenses, terms of use, citation
+requirements, acknowledgment requirements, and redistribution policies
+established by their respective providers.
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+Users of FeuPy Data are responsible for identifying and complying with the
+terms applicable to the individual datasets they use and for citing the
+corresponding original scientific publications and data providers where
+required.
+
+Original metadata, scripts, tables, or other materials created specifically
+for FeuPy Data by the FeuPy authors may be reused and redistributed with
+appropriate attribution, unless a different license or restriction is stated
+alongside the corresponding material.
+
+No warranty is provided for the datasets or associated materials. They are
+provided "as is", without warranty of any kind, express or implied, including
+but not limited to warranties of merchantability, fitness for a particular
+purpose, and non-infringement.
+
+In no event shall the FeuPy Data authors be liable for any claim, damages, or
+other liability arising from the use of this repository or its contents.
+
+For provenance, citation requirements, and licensing information associated
+with individual datasets, consult the corresponding metadata, documentation,
+original publications, and data-provider resources.
+
+FeuPy software:
+https://github.com/rubensjrcosta/feupy
+
+FeuPy Data:
+https://github.com/rubensjrcosta/feupy-data
