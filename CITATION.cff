@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "If you use FeuPy Data in your research, please cite this dataset, FeuPy, and the original data sources."
+
+title: "FeuPy Data: Auxiliary datasets for FeuPy"
+version: "1.0"
+
+authors:
+
+* family-names: "Costa Jr."
+  given-names: "Rubens"
+  orcid: "https://orcid.org/0000-0002-2893-7589"
+
+* family-names: "dos Anjos"
+  given-names: "Rita C."
+  orcid: "https://orcid.org/0000-0002-6463-2272"
+
+repository-code: "https://github.com/rubensjrcosta/feupy-data"
+url: "https://github.com/rubensjrcosta/feupy-data"
+
+keywords:
+
+* "gamma-ray astronomy"
+* "very-high-energy gamma rays"
+* "CTAO"
+* "Gammapy"
+* "astronomical datasets"
+* "scientific data"
+
+abstract: >-
+FeuPy Data is a versioned collection of auxiliary datasets used by
+FeuPy for very-high-energy gamma-ray analysis, modeling, and
+simulations. The repository provides external data required by
+selected FeuPy workflows, including catalog information, instrument
+response functions, sensitivity products, and other supporting
+datasets. FeuPy Data version 1.0 is associated with FeuPy v0.1.0.
