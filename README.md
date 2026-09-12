@@ -1,103 +1,168 @@
-# feupy-data
+# FeuPy Data
 
-[![feupy](https://img.shields.io/badge/powered%20by-feupy-blue.svg?style=flat)](https://github.com/rubensjrcosta/feupy)
-[![gammapy](https://img.shields.io/badge/powered%20by-gammapy-orange.svg?style=flat)](https://gammapy.org/)
+[![FeuPy](https://img.shields.io/badge/used%20by-FeuPy-blue.svg)](https://github.com/rubensjrcosta/feupy)
 
-This repository contains **datasets used by the feupy project**.
+**FeuPy Data** contains auxiliary datasets used by [FeuPy](https://github.com/rubensjrcosta/feupy), an open-source Python package for very-high-energy gamma-ray analysis, modeling, and simulations.
 
-The main **feupy** repository is available at:
-
-https://github.com/rubensjrcosta/feupy
-
-Large datasets are stored separately from the main code repository to keep the package lightweight and to ensure reproducibility of simulations, examples, and analysis workflows.
-
----
-
-## Dependency on Gammapy datasets
-
-The **feupy** package is built on top of Gammapy.  
-Therefore, **Gammapy datasets are required** to run many examples and simulations.
-
-Users must configure both environment variables:
-
-```
-GAMMAPY_DATA
-FEUPY_DATA
-```
-
-Example configuration:
-
-```
-GAMMAPY_DATA=/home/phoenix/Coding/data/gammapy-datasets/2.0
-FEUPY_DATA=/home/phoenix/Coding/data/feupy-datasets/1.0
-```
-
----
+The repository provides external data required by selected FeuPy workflows, including catalog information, instrument response functions, sensitivity products, and other supporting datasets.
 
 ## Repository structure
 
-Datasets are organized by version.
+The datasets are organized by version:
 
-Example:
-
-```
-data/
-   feupy-datasets/
-      1.0/
-         catalogs/
-         irfs/
+```text
+feupy-data/
+└── feupy-datasets/
+    └── 1.0/
 ```
 
-Typical dataset contents may include:
+Each dataset release is stored in a dedicated version directory to ensure reproducibility and compatibility with specific FeuPy releases.
 
-- CTAO simulation products
-- GRB spectral models
-- instrument response functions (IRFs)
-- example event lists
-- auxiliary analysis data
+## Dataset versions
 
----
+The current dataset release is:
+
+```text
+feupy-datasets/1.0/
+```
+
+Compatibility with FeuPy releases is summarized below:
+
+| FeuPy version | FeuPy Data version |
+| ------------- | ------------------ |
+| `v0.1.0`      | `1.0`              |
 
 ## Installation
 
 Clone the repository:
 
-```
+```bash
 git clone https://github.com/rubensjrcosta/feupy-data.git
 ```
 
-Place the datasets in a local directory such as:
+The data do not require installation as a Python package.
 
-```
-~/Coding/data/feupy-datasets/
-```
+Instead, FeuPy accesses the datasets through the `FEUPY_DATA` environment variable.
 
-Example directory structure:
+## Configure `FEUPY_DATA`
 
-```
-~/Coding/data/
-   gammapy-datasets/
-      2.0/
-   feupy-datasets/
-      1.0/
+Set the environment variable to the dataset version required by your FeuPy installation:
+
+```bash
+export FEUPY_DATA=/path/to/feupy-data/feupy-datasets/1.0
 ```
 
----
+For example:
 
-## Usage in Python
-
-Datasets can be accessed through the environment variables:
-
-```python
-import os
-from pathlib import Path
-
-GAMMAPY_DATA = Path(os.environ["GAMMAPY_DATA"])
-FEUPY_DATA = Path(os.environ["FEUPY_DATA"])
+```bash
+export FEUPY_DATA=$HOME/feupy-data/feupy-datasets/1.0
 ```
 
----
+Verify the configuration with:
 
-## License
+```bash
+echo $FEUPY_DATA
+```
 
-This repository follows the same license as the main **feupy** project.
+## Conda environment configuration
+
+When using a Conda environment, the data path can be stored directly in the environment:
+
+```bash
+conda env config vars set \
+    FEUPY_DATA=/path/to/feupy-data/feupy-datasets/1.0
+```
+
+Reactivate the environment after setting the variable:
+
+```bash
+conda deactivate
+conda activate feupy
+```
+
+Verify that the variable is available:
+
+```bash
+echo $FEUPY_DATA
+```
+
+## Usage with FeuPy
+
+FeuPy automatically uses the `FEUPY_DATA` environment variable when access to external datasets is required.
+
+For FeuPy `v0.1.0`, the expected configuration is:
+
+```text
+FEUPY_DATA=/path/to/feupy-data/feupy-datasets/1.0
+```
+
+The FeuPy source code and documentation are available at:
+
+https://github.com/rubensjrcosta/feupy
+
+## Reproducibility
+
+Dataset versions are kept separate so that scientific analyses can be reproduced using the same data products.
+
+Users are encouraged to report both the FeuPy software version and the FeuPy Data version used in their analyses.
+
+For example:
+
+```text
+FeuPy v0.1.0
+FeuPy Data 1.0
+```
+
+## Data provenance
+
+The repository may contain data derived from or associated with external observatories, catalogs, scientific collaborations, publications, or software projects.
+
+Where applicable, the corresponding original references should be cited when these datasets are used in scientific work.
+
+Users should consult the documentation, metadata, and original sources associated with individual datasets for information about provenance and scientific interpretation.
+
+## Citation
+
+If you use FeuPy Data in scientific work, please cite FeuPy and the original references associated with the datasets used in your analysis.
+
+Citation information for FeuPy is provided in the main repository:
+
+https://github.com/rubensjrcosta/feupy
+
+A dedicated citation record for FeuPy Data may also be provided through Zenodo.
+
+## Versioning
+
+FeuPy Data uses independent dataset versioning.
+
+The software and dataset versions therefore do not need to match numerically.
+
+For example:
+
+```text
+FeuPy software:     v0.1.0
+FeuPy Data:         1.0
+```
+
+A new dataset version should be created whenever changes to the data may affect scientific results or compatibility with FeuPy analyses.
+
+## License and data rights
+
+The contents of this repository may originate from multiple external data providers.
+
+Individual datasets may therefore be subject to different licenses, acknowledgments, citation requirements, or redistribution policies.
+
+The presence of a dataset in this repository does not override the terms defined by the original data provider.
+
+Users are responsible for consulting and following the applicable conditions associated with each dataset.
+
+## Authors
+
+* **Rubens Costa Jr.**
+* **Rita C. dos Anjos**
+
+## Related project
+
+FeuPy source code:
+
+https://github.com/rubensjrcosta/feupy
