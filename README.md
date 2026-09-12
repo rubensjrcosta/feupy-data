@@ -1,5 +1,7 @@
 # FeuPy Data
 
+[![DOI](https://zenodo.org/badge/1177404918.svg)](https://doi.org/10.5281/zenodo.22723056)
+
 FeuPy Data is the auxiliary data repository for
 [FeuPy](https://github.com/rubensjrcosta/feupy), providing versioned
 datasets used by the package for gamma-ray source catalogs, instrument
