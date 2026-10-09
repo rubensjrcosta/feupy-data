@@ -19,30 +19,57 @@ authors:
 
 version: "1.0"
 
+doi: "10.5281/zenodo.22723056"
+
 repository-code: "https://github.com/rubensjrcosta/feupy-data"
+
+url: "https://github.com/rubensjrcosta/feupy-data"
 
 license: "BSD-3-Clause"
 
 keywords:
   - gamma rays
+  - gamma-ray astronomy
+  - high-energy astrophysics
   - very-high-energy astrophysics
   - source catalogs
   - instrument response functions
+  - interstellar radiation fields
+  - CTAO
+  - scientific datasets
   - reproducibility
   - FeuPy
 
 abstract: >
-  FeuPy Data is the auxiliary data repository for FeuPy. It provides
-  versioned gamma-ray source catalogs, data products associated with
-  dedicated scientific publications, instrument response functions,
-  metadata, and supporting files used by FeuPy analyses. The repository
-  is maintained separately from the FeuPy source code to preserve
-  reproducibility and allow software and dataset versions to evolve
-  independently.
+  FeuPy Data is the companion scientific data repository for FeuPy,
+  a Python package for high-energy and very-high-energy gamma-ray
+  astrophysics.
+
+  The repository provides versioned gamma-ray source catalogs,
+  data products associated with dedicated scientific publications,
+  instrument response functions, interstellar radiation field
+  models and related metadata, documentation, and supporting files
+  used in FeuPy analyses.
+
+  FeuPy Data is maintained separately from the FeuPy source code
+  to preserve reproducibility and allow software and dataset
+  versions to evolve independently.
+
+  The repository provides access to or integration with external
+  scientific datasets, including instrument response functions
+  from the Cherenkov Telescope Array Observatory and Galactic
+  interstellar radiation field models.
+
+  Third-party scientific datasets retain their original licenses,
+  attribution requirements, and redistribution conditions.
+  Some external scientific data files must be obtained separately
+  from their original distributions.
 
 preferred-citation:
   type: dataset
+
   title: "FeuPy Data: Auxiliary datasets for FeuPy"
+
   authors:
     - family-names: "Costa Jr."
       given-names: "Rubens"
@@ -53,4 +80,7 @@ preferred-citation:
       orcid: "https://orcid.org/0000-0002-6463-2272"
 
   version: "1.0"
+
+  doi: "10.5281/zenodo.22723056"
+
   repository-code: "https://github.com/rubensjrcosta/feupy-data"
