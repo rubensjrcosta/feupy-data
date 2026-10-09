@@ -1,7 +1,16 @@
+# Python
 __pycache__/
 *.py[cod]
 
+# Jupyter
 .ipynb_checkpoints/
 
+# Testing and linting
 .pytest_cache/
 .ruff_cache/
+
+# CTAO Prod6 IRFs
+/feupy-datasets/1.0/irfs/ctao-prod6-zenodo-v1.0/
+
+# Porter et al. (2017) ISRF
+/feupy-datasets/1.0/isrf/porter2017/
