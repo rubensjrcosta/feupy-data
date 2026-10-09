@@ -17,7 +17,7 @@ authors:
     given-names: "Rita C."
     orcid: "https://orcid.org/0000-0002-6463-2272"
 
-version: "1.0"
+version: "1.0.1"
 
 doi: "10.5281/zenodo.22723056"
 
@@ -79,7 +79,7 @@ preferred-citation:
       given-names: "Rita C."
       orcid: "https://orcid.org/0000-0002-6463-2272"
 
-  version: "1.0"
+  version: "1.0.1"
 
   doi: "10.5281/zenodo.22723056"
 
