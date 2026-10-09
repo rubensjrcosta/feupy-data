@@ -33,9 +33,16 @@ feupy-data/
         ├── catalogs/
         ├── dedicated_publications/
         ├── irfs/
+        │   ├── cta-prod5-zenodo-v0.1/
+        │   │   ├── README.md
+        │   │   └── fits/
         │   └── ctao-prod6-zenodo-v1.0/
+        │       ├── README.md
+        │       ├── LICENSE
+        │       └── fits/  # Downloaded separately; not tracked by Git
         └── isrf/
             └── porter2017/
+                └── README.md
 ```
 
 The main directories contain:
@@ -54,7 +61,10 @@ files, figures, and original or derived data products required to
 document the provenance and construction of the datasets.
 
 The exact contents of each directory depend on the corresponding
-scientific data release.
+scientific data release. The tree above illustrates the local dataset
+layout; not every file is included in a Git clone. In particular, the
+Prod6 FITS files and original GALPROP ISRF tables must be obtained
+separately.
 
 ## Dataset version
 
@@ -64,10 +74,8 @@ The current dataset release is:
 FeuPy Data 1.0
 ```
 
-FeuPy Data `1.0` is the dataset release associated with the initial
-FeuPy `v0.1.0` release.
-
-The recommended combination for the initial release is:
+FeuPy Data `1.0` was initially associated with the FeuPy `v0.1.0`
+release. The original version pairing was:
 
 ```text
 FeuPy:       v0.1.0
@@ -75,11 +83,13 @@ FeuPy Data:  1.0
 ```
 
 Subsequent FeuPy development versions may support additional
-datasets while retaining compatibility with the same dataset
-release.
+datasets while retaining compatibility with the same dataset release.
+In particular, Prod6 and Porter et al. (2017) integration may depend
+on a newer FeuPy development version; their availability in FeuPy
+`v0.1.0` has not been established here.
 
-Users should verify compatibility with the FeuPy version used
-in their analyses.
+Users should verify the APIs and dataset compatibility of the specific
+FeuPy release or Git commit used in their analyses.
 
 ## Installation
 
@@ -189,71 +199,76 @@ used in gamma-ray instrument simulations and analyses.
 FeuPy provides support for CTAO instrument response functions,
 including the Prod5 and Prod6 simulation productions.
 
-#### CTAO Prod5
+#### CTAO Prod5 v0.1
 
-CTAO Prod5 instrument response functions provide reference
-configurations for CTAO performance studies.
+The CTA Prod5 v0.1 instrument response functions provide reference
+configurations for CTA North and South performance studies. The
+original dataset is available at:
 
-Depending on the available files, the configurations may include:
+**DOI:** https://doi.org/10.5281/zenodo.5499840
 
-- CTAO North and South arrays;
-- different zenith angles;
-- different observation times;
-- azimuth-dependent or azimuth-averaged responses.
+**License:** Creative Commons Attribution 4.0 International
+([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)).
 
-FeuPy provides utilities for selecting and managing these
-instrument response configurations.
+The FITS files are tracked in this repository under:
 
-The corresponding files must be available in the directory
-structure expected by the installed FeuPy version.
+```text
+feupy-datasets/1.0/irfs/cta-prod5-zenodo-v0.1/fits/
+```
+
+The local collection includes configurations for North and South,
+zenith angles of 20°, 40°, and 60°, azimuth orientations `AverageAz`,
+`NorthAz`, and `SouthAz`, and nominal exposures of 0.5, 5, and 50 h.
+Different telescope subarrays are also represented.
+
+See the dataset-specific `README.md` and the original Zenodo record
+for provenance, attribution, simulation assumptions, and citation
+instructions.
 
 #### CTAO Prod6 v1.0
 
-FeuPy also supports the CTAO Prod6 v1.0 instrument response
-functions.
+FeuPy also supports the CTAO Prod6 v1.0 instrument response functions,
+including dark-sky and half-moon observing conditions.
 
-The corresponding dataset is organized under:
+**DOI:** https://doi.org/10.5281/zenodo.22871179
+
+**License:** Creative Commons Attribution 4.0 International
+([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)).
+
+The local dataset directory is:
 
 ```text
 feupy-datasets/1.0/irfs/ctao-prod6-zenodo-v1.0/
 ```
 
-Prod6 provides updated CTAO instrument response configurations,
-including different observing conditions.
+The original Prod6 FITS files are **not tracked in this Git repository**.
+Download the required FITS distribution from the original Zenodo
+record and extract it into the directory layout expected by the FeuPy
+version in use. Preserve the original source metadata and license.
 
-The FeuPy implementation supports configurations associated
-with dark-sky and half-moon observations.
+See the dataset-specific `README.md` for additional information.
 
-For example:
+#### Using the CTAO IRFs with FeuPy
+
+FeuPy development versions include the `CTAOIRFManager` interface for
+selecting Prod5 and Prod6 responses. The following illustrates the
+intended production and observing-condition selections; verify the
+constructor signature against your installed FeuPy version:
 
 ```python
 from feupy.irf import CTAOIRFManager
 
-prod5 = CTAOIRFManager(
-    production="prod5",
-)
-
-prod6_dark = CTAOIRFManager(
-    production="prod6",
-    condition="dark",
-)
-
-prod6_halfmoon = CTAOIRFManager(
-    production="prod6",
-    condition="halfmoon",
-)
+prod5 = CTAOIRFManager(production="prod5")
+prod6_dark = CTAOIRFManager(production="prod6", condition="dark")
+prod6_halfmoon = CTAOIRFManager(production="prod6", condition="halfmoon")
 ```
 
-The required IRF files must be available in their expected
-locations.
+The required IRF files must be available in the locations expected by
+the installed software. Users should consult the original CTAO data
+releases for instrument configurations, simulation assumptions, and
+citation requirements.
 
-Users should consult the original CTAO data release for
-information about the instrument configurations, simulation
-assumptions, data availability, and citation requirements.
-
-Additional information about CTAO is available at:
-
-https://www.ctao.org/
+Additional information about CTAO: https://www.ctao.org/
 
 ### Interstellar radiation fields
 
@@ -288,9 +303,9 @@ porter2017/
     └── extract_number_density.cc
 ```
 
-The FeuPy implementation provides the `Porter2017ISRF`
-interface for evaluating radiation fields at Galactic
-positions specified using `astropy.coordinates.SkyCoord`.
+Recent FeuPy development versions provide the `Porter2017ISRF`
+interface for evaluating radiation fields at Galactic positions
+specified using `astropy.coordinates.SkyCoord`.
 
 Supported functionality includes:
 
@@ -303,7 +318,8 @@ Supported functionality includes:
 The blackbody approximation can be useful when modeling
 inverse-Compton emission from relativistic electron populations.
 
-For example:
+The following is an illustrative example; verify the interface
+against your installed FeuPy version:
 
 ```python
 import astropy.units as u
@@ -331,19 +347,28 @@ energy_density = isrf.energy_density(
 print(energy_density)
 ```
 
-The corresponding GALPROP files must be available in the
-directory structure expected by FeuPy.
+The original GALPROP ISRF tables are **not redistributed** through
+FeuPy Data. Users must obtain them from the authorized GALPROP
+distribution and place them in the directory structure expected by
+their FeuPy version. The repository provides documentation and
+integration support; it is not a mirror of the original GALPROP data.
 
-The original publication and associated data documentation
-should be consulted for information about the physical
-assumptions, model configurations, and citation requirements.
+The corresponding GALPROP files must be available in the directory
+structure expected by FeuPy.
+
+The original publication (Porter et al. 2017,
+https://doi.org/10.3847/1538-4357/aa844d) and the official GALPROP
+distribution documentation should be consulted for the physical
+assumptions, model configurations, usage terms, and citation
+requirements.
 
 ## Usage with FeuPy
 
 FeuPy automatically uses the `FEUPY_DATA` environment variable
 when access to external datasets is required.
 
-For FeuPy `v0.1.0`, the expected configuration is:
+For the versioned dataset layout described here, the expected
+configuration is:
 
 ```text
 FEUPY_DATA=/path/to/feupy-data/feupy-datasets/1.0
@@ -508,12 +533,16 @@ FeuPy Data uses independent dataset versioning.
 Software and dataset versions therefore do not need to match
 numerically.
 
-For the initial release:
+The initial release pairing was:
 
 ```text
 FeuPy software:  v0.1.0
 FeuPy Data:      1.0
 ```
+
+Newer FeuPy development versions can provide additional interfaces
+for datasets stored under the same FeuPy Data version. This does not
+imply that those interfaces existed in the initial software release.
 
 A new FeuPy Data version should be created whenever changes
 to the datasets may affect scientific results, reproducibility,
@@ -534,7 +563,10 @@ License, unless otherwise stated.
 
 The repository also contains or references data products
 originating from external observatories, catalogs, scientific
-collaborations, publications, and software projects.
+collaborations, publications, and software projects. The CTA Prod5
+v0.1 and CTAO Prod6 v1.0 source releases are identified as CC BY 4.0
+in their respective Zenodo records; original GALPROP Porter et al.
+(2017) tables are not redistributed here.
 
 Such third-party data may be subject to their own licenses,
 terms of use, acknowledgment requirements, citation
