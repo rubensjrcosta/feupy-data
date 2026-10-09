@@ -32,4 +32,10 @@ __pycache__/
 # Keep external IRFs local until redistribution terms
 # have been verified.
 
-/feupy-datasets/1.0/irfs/ctao-prod6-zenodo-v1.0/
+# CTAO Prod6 v1.0
+# Keep original IRF files local until redistribution
+# conditions have been verified.
+
+/feupy-datasets/1.0/irfs/ctao-prod6-zenodo-v1.0/*
+
+!/feupy-datasets/1.0/irfs/ctao-prod6-zenodo-v1.0/README.md
