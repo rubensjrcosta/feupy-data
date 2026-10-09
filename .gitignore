@@ -1,16 +1,35 @@
+# ============================================================
 # Python
+# ============================================================
+
 __pycache__/
 *.py[cod]
 
+# ============================================================
 # Jupyter
+# ============================================================
+
 .ipynb_checkpoints/
 
+# ============================================================
 # Testing and linting
+# ============================================================
+
 .pytest_cache/
 .ruff_cache/
 
-# CTAO Prod6 IRFs
-/feupy-datasets/1.0/irfs/ctao-prod6-zenodo-v1.0/
+# ============================================================
+# External scientific datasets
+# ============================================================
 
-# Porter et al. (2017) ISRF
-/feupy-datasets/1.0/isrf/porter2017/
+# GALPROP ISRF - Porter et al. (2017)
+# Redistribution requires explicit permission from GALPROP.
+# Keep the original files locally for scientific analyses.
+
+/feupy-datasets/1.0/isrf/porter2017/Porter_etal_ApJ_846_67_2017_SEDonly/
+
+# CTAO Prod6 v1.0
+# Keep external IRFs local until redistribution terms
+# have been verified.
+
+/feupy-datasets/1.0/irfs/ctao-prod6-zenodo-v1.0/
